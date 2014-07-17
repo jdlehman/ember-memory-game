@@ -21,9 +21,11 @@ export default Ember.ObjectController.extend({
             // save card and associate to game
             card.save().then(function(card) {
               controller.get('model.cards').addObject(card);
-              controller.transitionToRoute('game', controller.get('model'));
             });
           });
+          // transition to game route after adding all cards to game
+          controller.transitionToRoute('game', controller.get('model'));
+          controller.set('category', '');
         });
       }
       else {
