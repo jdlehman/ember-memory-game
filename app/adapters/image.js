@@ -6,8 +6,7 @@ export default Ember.Object.extend({
       .then(function(response) {
         return response.responseData.results.map(function(result) {
           return {
-            id: result.imageId,
-            image: result.unescapedUrl
+            imageName: result.unescapedUrl
           };
         });
       });
