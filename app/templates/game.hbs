@@ -1,6 +1,4 @@
-<h1>{{category}} Game</h1>
-<ul>
-  {{#each}}
-    <img width="100px" {{bind-attr src=image}}/>
-  {{/each}}
-</ul>
+<h2>Game</h2>
+{{#each cards}}
+  <img width="50px" {{bind-attr src='image'}} />
+{{/each}}
