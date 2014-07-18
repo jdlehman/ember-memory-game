@@ -10,7 +10,8 @@ export default Ember.Controller.extend({
         var controller = this;
         // create game
         var game = controller.store.createRecord('game', {
-          completed: false
+          completed: false,
+          title: category
         });
         // get images from google images
         var adapter = ImageAdapter.create();
