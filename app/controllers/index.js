@@ -17,16 +17,11 @@ export default Ember.Controller.extend({
         var adapter = ImageAdapter.create();
         adapter.find(category).then(function(images) {
           images.map(function(image) {
-            // create card from image data
-            var card = controller.store.createRecord('card', {
-              image: image.imageName,
-              selected: false,
-              matched: false,
-              game: game
-            });
             // associate card to game
             game.get('cards').then(function(cards) { // need this b/c cards assoc is async
-              cards.addObject(card);
+              // add card twice
+              cards.addObject(controller.newCard(image, game));
+              cards.addObject(controller.newCard(image, game));
             });
           });
           // transition to game route after adding all cards to game
@@ -38,5 +33,14 @@ export default Ember.Controller.extend({
         alert('Please enter a category');
       }
     }
+  },
+  newCard: function(image, game) {
+    // create card from image data
+    return this.store.createRecord('card', {
+      image: image.imageName,
+      selected: false,
+      matched: false,
+      game: game
+    });
   }
 });
