@@ -9,7 +9,13 @@ var Game = DS.Model.extend({
 });
 
 Game.reopenClass({
-  FIXTURES: []
+  FIXTURES: [
+    {
+      id: 0,
+      title: 'game',
+      cards: [0,1,2,3]
+    }
+  ]
 });
 
 export default Game;
