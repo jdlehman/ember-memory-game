@@ -40,6 +40,7 @@ export default Ember.Controller.extend({
       image: image.imageName,
       selected: false,
       matched: false,
+      randomId: Math.random(),
       game: game
     });
   }
