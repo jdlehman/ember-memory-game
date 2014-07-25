@@ -5,6 +5,10 @@
   background-color: #aaa;
   border: 1px solid #fff;
 
+  &.is-selected {
+    background-color: #333;
+  }
+
   img {
     width: 150px;
     max-height: 150px;
