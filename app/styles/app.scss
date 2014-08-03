@@ -9,6 +9,10 @@
     background-color: #333;
   }
 
+  &.is-matched {
+    background-color: #6a8455;
+  }
+
   img {
     width: 150px;
     max-height: 150px;
