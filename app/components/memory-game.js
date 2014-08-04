@@ -1,18 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  // selectedCards: Ember.computed.alias('selected'),
   firstCard: null,
   handleMatch: function(card1, card2) {
     if(card1.image === card2.image) {
-      card1.set('matched', true);
-      card2.set('matched', true);
+      card1.toggleProperty('matched');
+      card2.toggleProperty('matched');
     }
   },
   reset: function(card1, card2) {
-    card1.set('selected', false);
-    card2.set('selected', false);
-    this.set('firstCard', null);
+    Ember.run.later(this, function() {
+      card1.toggleProperty('selected');
+      card2.toggleProperty('selected');
+      this.set('firstCard', null);
+    }, 500);
   },
   actions: {
     checkMatch: function(card) {
