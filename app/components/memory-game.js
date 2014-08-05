@@ -2,6 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   firstCard: null,
+  allMatched: function() {
+    var allMatched = this.get('cards').rejectBy('matched').length === 0;
+    if(allMatched) {
+      this.set('completed', true);
+    }
+    return allMatched;
+  }.observes('cards.@each.matched'),
   handleMatch: function(card1, card2) {
     if(card1.image === card2.image) {
       card1.toggleProperty('matched');
@@ -13,7 +20,7 @@ export default Ember.Component.extend({
       card1.toggleProperty('selected');
       card2.toggleProperty('selected');
       this.set('firstCard', null);
-    }, 500);
+    }, 200);
   },
   actions: {
     checkMatch: function(card) {

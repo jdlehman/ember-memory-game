@@ -13,6 +13,7 @@ Game.reopenClass({
     {
       id: 0,
       title: 'game',
+      completed: false,
       cards: [0,1,2,3,4,5,6,7]
     }
   ]
