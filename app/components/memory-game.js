@@ -4,10 +4,8 @@ export default Ember.Component.extend({
   firstCard: null,
   locked: false,
   allMatched: function() {
-    var allMatched = this.get('cards').rejectBy('matched').length === 0;
-    if(allMatched) {
-      this.set('completed', true);
-    }
+    var allMatched = this.get('cards').rejectBy('matched', true).length === 0;
+    this.set('completed', allMatched);
     return allMatched;
   }.observes('cards.@each.matched'),
   handleMatch: function(card1, card2) {
