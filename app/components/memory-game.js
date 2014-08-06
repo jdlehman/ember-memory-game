@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   firstCard: null,
+  locked: false,
   allMatched: function() {
     var allMatched = this.get('cards').rejectBy('matched').length === 0;
     if(allMatched) {
@@ -20,13 +21,15 @@ export default Ember.Component.extend({
       card1.toggleProperty('selected');
       card2.toggleProperty('selected');
       this.set('firstCard', null);
-    }, 200);
+      this.set('locked', false);
+    }, 500);
   },
   actions: {
     checkMatch: function(card) {
       var card1 = this.get('firstCard');
       var card2 = card;
       if(card1) {
+        this.set('locked', true);
         this.handleMatch(card1, card2);
         this.reset(card1, card2);
       }

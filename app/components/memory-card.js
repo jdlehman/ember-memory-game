@@ -6,8 +6,8 @@ export default Ember.Component.extend({
   isSelected: Ember.computed.alias('selected'),
   isMatched: Ember.computed.alias('matched'),
   selectable: function() {
-    return !(this.get('selected') || this.get('matched'));
-  }.property('selected', 'matched'),
+    return !(this.get('selected') || this.get('matched') || this.get('gameLocked'));
+  }.property('selected', 'matched', 'gameLocked'),
   actions: {
     select: function() {
       if(this.get('selectable')) {
