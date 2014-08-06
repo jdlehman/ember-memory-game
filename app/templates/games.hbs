@@ -1,3 +1,15 @@
-{{#each}}
-  {{link-to title 'game' this}}
-{{/each}}
+<h2>Games in Progress</h2>
+<ul>
+  {{#each incompleteGames}}
+    <li>{{link-to title 'game' this}}</li>
+  {{/each}}
+</ul>
+
+<hr>
+
+<h2>Completed Games</h2>
+<ul>
+  {{#each completeGames}}
+    <li>{{link-to title 'game' this}}</li>
+  {{/each}}
+</ul>

@@ -1,2 +1,6 @@
 <h2>Game</h2>
+{{#if completed}}
+  <h3>You Win!</h2>
+  <button {{action 'reset'}}>Play Again?</button>
+{{/if}}
 {{memory-game cards=randomCards completed=completed}}
