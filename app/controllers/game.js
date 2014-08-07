@@ -11,6 +11,7 @@ export default Ember.ObjectController.extend({
     reset: function() {
       this.get('cards').forEach(function(card) {
         card.toggleProperty('matched');
+        card.set('randomId', Math.random());
       });
     }
   }
